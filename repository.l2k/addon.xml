@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.l2k" name="L2K Add-on Repository" version="0.0.1" provider-name="lamo2k123">
+<addon id="repository.l2k" name="L2K Add-on Repository" version="0.0.2" provider-name="lamo2k123">
     <extension point="xbmc.addon.repository" name="L2K Add-on Repository">
         <info compressed="false">https://raw.githubusercontent.com/lamo2k123/kodi.repository/master/addons.xml</info>
         <checksum>https://raw.githubusercontent.com/lamo2k123/kodi.repository/master/addons.xml.md5</checksum>
