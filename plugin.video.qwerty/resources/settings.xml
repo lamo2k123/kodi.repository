@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <category label="128">
+    <setting id="quality" type="labelenum" label="100500" values="HD|SD" default="HD" />
+  </category>
+</settings>
