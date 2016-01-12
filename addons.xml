@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+    <addon id="repository.l2k" name="L2K Add-on Repository" version="0.0.1" provider-name="lamo2k123">
+        <extension point="xbmc.addon.repository" name="L2K Add-on Repository">
+            <info compressed="false">https://raw.githubusercontent.com/anteo/xbmc.repository/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/anteo/xbmc.repository/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/anteo/xbmc.repository/master</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">L2K addons</summary>
+            <description lang="en">Download and install addons by L2K</description>
+            <summary lang="ru">Репозиторий L2K</summary>
+            <description lang="ru">Скачивание и установка плагинов от L2K</description>
+            <platform>all</platform>
+        </extension>
+    </addon>
+</addons>
