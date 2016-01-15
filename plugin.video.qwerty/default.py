@@ -3,13 +3,20 @@
 import sys
 import os
 import requests
+import urllib2
 import re
 from xbmcswift2 import Plugin
 from BeautifulSoup import BeautifulSoup
 
+import xbmc
+
 plugin = Plugin()
 
 addon_path = plugin.addon.getAddonInfo('path').decode('utf-8')
+
+__scriptID__ = "plugin.video.qwerty"
+addon_work_folder = os.path.join(xbmc.translatePath( "special://profile/addon_data/" ), __scriptID__)
+
 #thumbpath = os.path.join(addon_path, 'resources', 'thumbnails')
 #fanart = os.path.join(addon_path, 'fanart.jpg')
 #sys.path.append(os.path.join(addon_path, 'resources', 'lib'))
@@ -80,8 +87,8 @@ def video_index(category):
         list.append({
             'label': video.b.string,
 #            'thumbnail': thumb,
-#            'properties': {'fanart_image': fanart},
-            'path': plugin.url_for('play_video', url=video['href']),
+#            'properties': {'fanart_image': fanart}, video['href']
+            'path': plugin.url_for('play_video', url='//torrent.qwerty.ru/download.php/153442/The.Girl.Trouble.2015.L2.WEB-DLRip.1400Mb.avi.torrent'),
             'is_playable': True
         })
 
@@ -107,8 +114,19 @@ def video_index(category):
 #
 @plugin.route('/play/<url>')
 def play_video(url):
-    plugin.set_resolved_url(url)
 
+#    test = download_file(urllib2.quote(url))
+    plugin.redirect('plugin://plugin.video.torrenter/?action=playSTRM&url=%s' % test)
+#    plugin.set_resolved_url('https://cs12625.vk.me/u11878300/videos/f510e4654f.360.mp4')
+
+def download_file(url):
+    r = session.get('http:%s' % url, stream=True)
+    if r.status_code == 200:
+        with open(os.path.join(addon_work_folder, 'test.torrent'), 'wb') as f:
+            for chunk in r:
+                f.write(chunk)
+
+    return os.path.join(addon_work_folder, 'test.torrent')
 
 if __name__ == '__main__':
     plugin.run()
